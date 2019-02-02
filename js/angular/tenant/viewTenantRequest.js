@@ -15,18 +15,19 @@ app.controller('viewTenantRequestCntrl', function($scope, $http,$location,$route
     });
 	}
 	
-	/*$scope.addTenant = function(id_tenant_request){
-	$http({
+	$scope.deleteTenantRequest = function(id_tenant_request){
+    $http({
 		  method  : 'POST',
-		  data	  : $.param({id_tenant_request:id_tenant_request}),
-		  url     : 'controller/student/getClass.php',
-		  headers : { 'Content-Type': 'application/x-www-form-urlencoded' }
-	}).then(function mySucces(response) {
-        $scope.classes = response.data.classes;
+		  data    : $.param({id_tenant_request:id_tenant_request}),
+		  url     : 'controller/deleteTenantRequest.php',
+	headers : { 'Content-Type': 'application/x-www-form-urlencoded' }
+    }).then(function mySucces(response) {
+        $scope.tenants = response.data;
+		$route.reload();
     }, function myError(response) {
-        $scope.classes  = response.statusText;
+        $scope.tenants = response.statusText;
     });
-	}*/
+	}
 	
 	$scope.loadTenantRequest = function(){
 	$http({

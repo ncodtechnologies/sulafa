@@ -34,6 +34,14 @@ class TenantRequest{
 		$query->execute($values);
 		return $query->fetchAll();
 	}
+	function deleteTenantRequest($id_tenant_request)
+	{
+		$_query = "DELETE FROM tenant_request where id_tenant_request=?";
+		$query=$this->link->prepare($_query);
+		$values=array($id_tenant_request);
+		$query->execute($values);
+		return $query->fetchAll();
+	}
 } 
 /*
 $obj= new TenantRequest();
