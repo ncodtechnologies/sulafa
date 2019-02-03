@@ -28,6 +28,10 @@ app.config(function($routeProvider) {
         controller: 'viewTenantRequestCntrl',
         templateUrl : "view/tenant/viewTenantRequest.html"
     })
+    .when("/carCleaning", {
+        controller: 'viewCarCleaningRequestCntrl',
+        templateUrl : "view/car_cleaning/viewTCarCleaning.html"
+    })
 });
 
 app.controller('sulafaCtrl', function($scope,sharedService,$rootScope) {
