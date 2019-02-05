@@ -1,5 +1,6 @@
 app.controller('viewTenantCntrl', function($scope, $http,$location,$route) {
 	$scope.title = "SulafaApp";
+	$scope.str = "Tenants";
 	
 	$scope.loadTenantDt = function(id_tenant){
 		$location.path("tenantDt/"+id_tenant);

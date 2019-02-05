@@ -1,6 +1,7 @@
 
 app.controller('viewVisitorDtCntrl', function($scope, $http,$location,$route,$routeParams) {
 	$scope.title = "SulafaApp";
+	$scope.str = "Visitor Details";
 	$scope.formData={};
 	$scope.formData.id_visitor= $routeParams.id_visitor;
 	

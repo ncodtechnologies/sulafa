@@ -1,5 +1,6 @@
 app.controller('viewTenantRequestCntrl', function($scope, $http,$location,$route) {
 	$scope.title = "SulafaApp";
+	$scope.str = "Tenant Requests";
 	$scope.formData={};
 	
 	$scope.addTenant = function(id_tenant_request){

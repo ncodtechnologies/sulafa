@@ -1,12 +1,12 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        Not A Blank page {{str}}
+                        {{str}}
                         <small>Control panel</small>
                     </h1>
                     <ol class="breadcrumb">
                         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                        <li class="active">Not A Blank page</li>
+                        <li class="active">{{str}}</li>
                     </ol>
                 </section>
 
@@ -31,15 +31,17 @@
                                 <div class="box-body table-responsive no-padding">
                                     <table class="table table-hover">
                                         <tr>
-                                            <th>ID Plan</th>
-                                            <th>ID Tenant</th> 
-                                            <th>Vehicle No</th>
+                                            <th>Type</th>
+                                            <th>ID Tenant</th>
+											<th>Description</th> 											
+                                            <th>Service Date</th>
                                             <th>Requested Date</th> 
 											<th></th>
                                         </tr>
                                         <tr ng-repeat="maintenanceDt in maintenance" >
                                             <td>{{ maintenanceDt.type }}</td>
                                             <td>{{ maintenanceDt.id_tenant }}</td>
+                                            <td>{{ maintenanceDt.description }}</td>
                                             <td>{{ maintenanceDt.service_date }}</td>
 											<td>{{ maintenanceDt.requested_date }}</td>
 											<td><button type="button" class="btn btn-primary btn-sm" ng-click="loadTenantDt(tenant.id_tenant)">View</button></td>

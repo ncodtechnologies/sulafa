@@ -17,11 +17,11 @@ class CarCleaning{
 		return $query->fetchAll();
 	}
 
-	function getCarCleaningRequestDt($id_car_cleaning_request)
+	function getCarCleaningRequestDt($id_tenant)
 	{
-		$_query = "SELECT * FROM car_cleaning where id_car_cleaning_request=?";
+		$_query = "SELECT * FROM car_cleaning where id_tenant=?";
 		$query=$this->link->prepare($_query);
-		$values=array($id_car_cleaning_request);
+		$values=array($id_tenant);
 		$query->execute($values);
 		return $query->fetchAll();
 	}
@@ -29,6 +29,6 @@ class CarCleaning{
 		
 } 
 /*
-$obj= new Visitor();
-echo json_encode($obj->getVisitors());
+$obj= new CarCleaning();
+echo json_encode($obj->getCarCleaningRequestDt(1));
 */
