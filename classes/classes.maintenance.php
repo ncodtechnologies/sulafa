@@ -38,6 +38,6 @@ class Maintenance{
 	
 } 
 /*
-$obj= new Visitor();
-echo json_encode($obj->getVisitors());
+$obj= new Maintenance();
+echo json_encode($obj->getMaintenanceRequests(1));
 */

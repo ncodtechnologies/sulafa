@@ -28,9 +28,13 @@ app.config(function($routeProvider) {
         controller: 'viewTenantRequestCntrl',
         templateUrl : "view/tenant/viewTenantRequest.html"
     })
-    .when("/carCleaning", {
-        controller: 'viewCarCleaningRequestCntrl',
-        templateUrl : "view/car_cleaning/viewTCarCleaning.html"
+    .when("/carCleaning/:id_tenant?/", {
+        controller: 'viewCarCleaningCntrl',
+        templateUrl : "view/car_cleaning/viewCarCleaning.html"
+    })
+    .when("/maintenance/:id_tenant?/", {
+        controller: 'viewMaintenanceCntrl',
+        templateUrl : "view/maintenance/viewMaintenance.html"
     })
 });
 

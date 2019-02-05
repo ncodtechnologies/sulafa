@@ -1,15 +1,14 @@
 app.controller('viewCarCleaningCntrl', function($scope, $http,$location,$route,$routeParams) {
 	
 	$scope.title = "SulafaApp";
-	$scope.formData = {};
+	$scope.formData = {};	
 	
-	
-	$scope.loadCarCleaningDt = function(){
+	$scope.loadCarCleaningDt = function(id_tenant){
 		$http({
 			method	: 'POST',
+			data	: $.param({id_tenant:id_tenant}),
 			url		:'controller/getCarCleaningRequest.php',
-			data	: $.param({}),
-			 headers : { 'Content-Type': 'application/x-www-form-urlencoded' }
+			headers : { 'Content-Type': 'application/x-www-form-urlencoded' }
 	}).then(function mySucces(response) {
 		$scope.formData.id_plan			= response.data.cars[0].id_plan;
 		$scope.formData.id_tenant 		= response.data.cars[0].id_tenant;

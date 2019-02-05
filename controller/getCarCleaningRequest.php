@@ -1,7 +1,10 @@
 <?php
-include('../classes/classes.tenant.php');
-$obj_tenant = new Tenant();
+include('../classes/classes.car_cleaning.php');
+$obj = new CarCleaning();
 
-$result['tenants'] 		= $obj_tenant->getTenants();
+//$id_tenant=$_POST["id_tenant"];
+$id_tenant=1;
+$result['cars'] 		= $obj->getCarCleaningRequestDt($id_tenant);
+
 echo json_encode($result);
 ?>
