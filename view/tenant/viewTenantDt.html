@@ -8,49 +8,73 @@
                         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
                         <li class="active">{{str}}</li>
                     </ol>
-                </section>
+                </section>			
+      						
+						<div class="col-xs-12"   ng-init="loadTenantDt()">
+                            <p class="lead">{title}</p>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tbody><tr>
+                                        <th style="width:50%">Tenant</th>
+                                        <td >{{ formData.name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Room No</th>
+                                        <td>{{ formData.room_no }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Emirates ID</th>
+                                        <td>{{ formData.emirates_id }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Phone</th>
+                                        <td>{{ formData.phone }}</td>
+                                    </tr>
+									
+                                </tbody></table>
+                            </div>
+                        </div>
+                 
 				
-      
-                        </div><!--/.col (left) -->
-                        <!-- right column -->
-                        <div class="col-md-12">
-                            <!-- general form elements disabled -->
-                            <div class="box box-warning"  ng-init="loadTenantDt()">
+                <!-- Main content -->
+                <section class="content">
+
+                    <div class="row"  ng-init="loadVisitors()">
+                        <div class="col-xs-12">
+                            <div class="box">
                                 <div class="box-header">
-                                    <h3 class="box-title">{title}</h3>
+                                    <h3 class="box-title">Visitors</h3>
+                                    <div class="box-tools">
+                                        <div class="input-group">
+                                            <input type="text" name="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search"/>
+                                            <div class="input-group-btn">
+                                                <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div><!-- /.box-header -->
-                                <div class="box-body">
-                                    <form role="form">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>ID</label>
-                                            <input type="text"  ng-model="formData.id_tenant" class="form-control" placeholder="Enter ..."/>
-                                        </div>
-										 <div class="form-group">
-                                            <label>Tenant</label>
-                                            <input type="text"  ng-model="formData.name" class="form-control" placeholder="Enter ..."/>
-                                        </div>
-										 <div class="form-group">
-                                            <label>Room No</label>
-                                            <input type="text"  ng-model="formData.room_no" class="form-control" placeholder="Enter ..."/>
-                                        </div>
-										 <div class="form-group">
-                                            <label>Emirates ID</label>
-                                            <input type="text"  ng-model="formData.emirates_id" class="form-control" placeholder="Enter ..."/>
-                                        </div>
-										 <div class="form-group">
-                                            <label>Phone</label>
-                                            <input type="text"  ng-model="formData.phone" class="form-control" placeholder="Enter ..."/>
-                                        </div>
-										<button  type="button" class="btn btn-primary btn-sm" ng-click="loadVisitors(formData.id_tenant)">Visitors</button>
-				                                     
-	                                 
-                                    </form>
+                                <div class="box-body table-responsive no-padding">
+                                    <table class="table table-hover">
+                                        <tr>
+                                            <th>Visitor</th> 
+                                            <th>Valley Access</th>
+											<th>Gate Access</th>
+											<th>Date</th>
+											<th></th>
+                                        </tr>
+                                        <tr ng-repeat="visitor in visitors" >
+											<td>{{ visitor.name }}</td>
+											<td>{{ visitor.valley_access }}</td>
+											<td>{{ visitor.gate_access }}</td>
+											<td>{{ visitor.date }}</td>
+											<td>	<button  type="button" class="btn btn-primary btn-sm" ng-click="loadVisitorDt(visitor.id_visitor)">View</button>
+				                    </td>
+                                        </tr>
+                                    </table>
                                 </div><!-- /.box-body -->
                             </div><!-- /.box -->
-                        </div><!--/.col (right) -->
-                    </div>   <!-- /.row -->
+                        </div>
+                    </div>
+
                 </section><!-- /.content -->
-            </aside><!-- /.right-side -->
-                <!-- Main content -->
                

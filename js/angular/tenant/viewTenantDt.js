@@ -5,6 +5,7 @@ app.controller('viewTenantDtCntrl', function($scope, $http,$location,$route,$rou
 	
 	$scope.formData = {};
 	$scope.formData.id_tenant= $routeParams.id_tenant;
+
 	
 	$scope.loadVisitors = function(id_tenant){
 		console.log(id_tenant);
@@ -31,6 +32,21 @@ app.controller('viewTenantDtCntrl', function($scope, $http,$location,$route,$rou
 		});
 	}
 	
+	$scope.loadVisitors = function(){
+	$http({
+		  method  : 'POST',
+		  data	  : $.param($scope.formData),
+		  url     : 'controller/getVisitors.php',
+		  headers : { 'Content-Type': 'application/x-www-form-urlencoded' }
+	}).then(function mySucces(response) {
+        $scope.visitors = response.data.visitors;
+    }, function myError(response) {
+        $scope.visitors  = response.statusText;
+    });
+	}
+	$scope.loadVisitorDt = function(id_visitor){
+		$location.path("visitorDt/"+id_visitor);
+	}
 	
 	
 });

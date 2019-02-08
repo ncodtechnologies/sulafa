@@ -11,42 +11,29 @@
                 </section>
 				
       
-                        </div><!--/.col (left) -->
-                        <!-- right column -->
-                        <div class="col-md-12">
-                            <!-- general form elements disabled -->
-                            <div class="box box-warning"  ng-init="loadVisitorDt()">
-                                <div class="box-header">
-                                    <h3 class="box-title">General Elements</h3>
-                                </div><!-- /.box-header -->
-                                <div class="box-body">
-                                    <form role="form">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>ID</label>
-                                            <input type="text"  ng-model="formData.id_visitor" class="form-control"/>
-                                        </div>
-										 <div class="form-group">
-                                            <label>Visitor</label>
-                                            <input type="text"  ng-model="formData.name" class="form-control" />
-                                        </div>
-										 <div class="form-group">
-                                            <label>Gate Access</label>
-                                            <input type="text"  ng-model="formData.gate_access" class="form-control" placeholder="Enter ..."/>
-                                        </div>
-										 <div class="form-group">
-                                            <label>valley Access</label>
-                                            <input type="text"  ng-model="formData.valley_access" class="form-control" placeholder="Enter ..."/>
-                                        </div>
+						<div class="col-xs-12"   ng-init="loadVisitorDt()">
+                            <p class="lead">{title}</p>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tbody><tr>
+                                        <th style="width:50%">Visitor</th>
+                                        <td >{{ formData.name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Gate Access</th>
+                                        <td>{{ formData.gate_access }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Valley Access</th>
+                                        <td>{{ formData.valley_access }}</td>
+                                    </tr>
+									<tr>
+                                        <th>Date</th>
+                                        <td>{{ formData.date }}</td>
+                                    </tr>
 									
-									               
-	                                 
-                                    </form>
-                                </div><!-- /.box-body -->
-                            </div><!-- /.box -->
-                        </div><!--/.col (right) -->
-                    </div>   <!-- /.row -->
-                </section><!-- /.content -->
-            </aside><!-- /.right-side -->
-                <!-- Main content -->
+                                </tbody></table>
+                            </div>
+                        </div>
+                 
                

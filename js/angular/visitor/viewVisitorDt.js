@@ -16,6 +16,7 @@ app.controller('viewVisitorDtCntrl', function($scope, $http,$location,$route,$ro
 		$scope.formData.id = response.data.visitors[0].id_visitor;
 		$scope.formData.gate_access = response.data.visitors[0].gate_access;
 		$scope.formData.valley_access = response.data.visitors[0].valley_access;
+		$scope.formData.date = response.data.visitors[0].date;
     }, function myError(response) {
         $scope.visitors  = response.statusText;
     });

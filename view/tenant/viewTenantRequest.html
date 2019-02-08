@@ -31,20 +31,17 @@
                                 <div class="box-body table-responsive no-padding">
                                     <table class="table table-hover">
                                         <tr>
-                                            <th>ID</th>
                                             <th>Tenant</th> 
                                             <th>Room No</th>
                                             <th>Phone</th> 
-											<th>Approval</th> 
+											<th>Actions</th> 
 											<th></th>
                                         </tr>
                                         <tr ng-repeat="formData in tenants" >
-                                            <td>{{ formData.id_tenant_request }}</td>
                                             <td>{{ formData.name }}</td>
                                             <td>{{ formData.room_no }}</td>
 											<td>{{ formData.phone }}</td>
-											<td>{{ formData.approval }}</td>
-											<td><button type="button" ng-click="addTenant(formData.id_tenant_request)" class="btn btn-primary btn-sm">Accept</button><button type="button" ng-click="deleteTenantRequest(formData.id_tenant_request)" class="btn btn-primary btn-sm" >Reject</button></td>
+											<td><button type="button" ng-click="addTenant(formData.id_tenant_request)" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-ok"></i></button><button type="button" ng-click="deleteTenantRequest(formData.id_tenant_request)" class="btn btn-primary btn-sm" ><i class="glyphicon glyphicon-remove"></i></button></td>
                                         </tr>
                                     </table>
                                 </div><!-- /.box-body -->
