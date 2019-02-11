@@ -1,0 +1,101 @@
+
+<html>
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  </head>
+  <body>
+    <div ng-app="myApp" ng-controller="myController">     
+      <button type="submit" ng-hide="firts" class="btn btn-danger"   ng-click='changeShow($index)'>Accept</button>   
+      <button type="submit" ng-hide="Second" class="btn btn-info" ng-click="save1()">Reject</button>
+	  <button type="submit" ng-hide="pen" class="btn btn-info" >Pending</button>
+	  <button type="submit" ng-hide="app" class="btn btn-info" >Approved</button>
+	  <button type="submit" ng-show='num == $index' class="btn btn-info" >Reject</button>
+    </div>
+  </body>
+  <script>
+    var myApp = angular.module('myApp', []);
+
+    myApp.controller('myController', function ($scope) {
+    $scope.app =true;
+	$scope.rej =true;
+      $scope.save = function () {
+        $scope.firts =true;
+        $scope.Second = false;
+		$scope.rej =true;
+		$scope.pen =true;
+		$scope.app =false;
+      };
+	  $scope.save1 = function () {
+        $scope.firts =false;
+        $scope.Second = true;
+      };
+	  
+	  $scope.changeShow = function(index){
+    $scope.num = index;
+  };
+    });
+  </script>
+</html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script>
+
+        angular.module('myApp', []).controller('namesCtrl', function($scope) {
+            $scope.isLoading = false;
+            $scope.checkedData = [];
+                    $scope.rowCollection = [{
+                      firstName: 'Laurent',
+                      lastName: 'Renard',
+                      birthDate: new Date('1987-05-21'),
+                      balance: 102
+                    }, {
+                      firstName: 'Blandine',
+                      lastName: 'Faivre',
+                      birthDate: new Date('1987-04-25'),
+                      balance: -2323.22
+                    }, {
+                      firstName: 'Francoise',
+                      lastName: 'Frere',
+                      birthDate: new Date('1955-08-27'),
+                      balance: 42343
+                    }];
+
+                    $scope.collectedData = function(val){
+                        $scope.checkedData.push(val);
+                    }
+
+                    $scope.moveToSafe = function() {
+                      console.log($scope.checkedData)
+                    };
+        })
+    </script>
+</head>
+<body ng-app="myApp" ng-controller="namesCtrl">
+    <div class="table-container">
+        <button type="button" ng-click="moveToSafe()" class="btn btn-sm btn-success">
+            Move to Safe
+        </button>
+        <table st-table="rowCollection" class="table">
+        <thead>
+          <tr>
+            <th st-sort="firstName">first name</th>
+            <th st-sort="lastName">last name</th>
+            <th st-sort="birthDate">birth date</th>
+            <th st-sort="balance">balance</th>
+            <th>Select </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr st-select-row="row" ng-repeat="row in rowCollection">
+            <td>{{row.firstName | uppercase}}</td>
+            <td>{{row.lastName}}</td>
+            <td>{{row.birthDate | date}}</td>
+            <td>{{row.balance | currency}}</td>
+            <td><input type="checkbox" ng-modal="checkedData" ng-click="collectedData(row)"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>  
+</body>

@@ -43,9 +43,11 @@
 											<td>{{ visitor.valley_access }}</td>
 											<td>{{ visitor.gate_access }}</td>
 											<td>{{ visitor.date }}</td>
-											<td><button type="button"   ng-hide="app"  ng-show='num1 == $index' class="btn btn-success btn-sm">Approved</button><button type="button" ng-show='num2 == $index' ng-hide="pen" class="btn btn-warning btn-sm">Pending</button><button type="button" ng-show='num3 == $index' ng-hide="rej" class="btn btn-danger btn-sm">Rejected</button></td>
-											<td><button  ng-click="acceptVisitor($index)" ng-hide="accept" class="btn btn-info btn-sm"><i class="glyphicon glyphicon-ok"></i></button>
-											<button  ng-hide="reject" class="btn btn-info btn-sm" ><i class="glyphicon glyphicon-remove"></i></button></td>
+											<td><button type="button" ng-show="approved[visitor.id_visitor]" class="btn btn-success btn-sm">Approved</button>
+												<button type="button" ng-hide="pending[visitor.id_visitor]" class="btn btn-warning btn-sm">Pending</button>
+												<button type="button" ng-show="rejected[visitor.id_visitor]" class="btn btn-danger btn-sm">Rejected</button></td>
+											<td><button class="btn btn-info btn-sm" ng-hide="accept[visitor.id_visitor]" ng-click="acceptVisitor(visitor)"><i class="glyphicon glyphicon-ok"></i></button>
+											<button  class="btn btn-info btn-sm"  ng-hide="reject[visitor.id_visitor]" ng-click="rejectVisitor(visitor)"><i class="glyphicon glyphicon-remove"></i></button></td>
 											<td><button  type="button" class="btn btn-primary btn-sm" ng-click="loadVisitorDt(formData.id_visitor)">View</button>
 											</td>
                                         </tr>
