@@ -24,27 +24,7 @@ app.controller('viewVisitorCntrl', function($scope, $http,$location,$route,$rout
     }, function myError(response) {
         $scope.visitors  = response.statusText;
     });
-	}
-	$scope.app =true;
-	$scope.rej =true;
-	
-	 /* $scope.rejectVisitor = function (index) {
-		  $scope.num1 = index;
-        $scope.accept =false;
-        $scope.reject = true;
-		$scope.rej =false;
-		$scope.pen =true;
-		$scope.app =true;
-      };*/	  
-	  $scope.accept1 = function(index){
-		  
-        $scope.accept =true;
-        $scope.reject =false;		
-		$scope.rej =true;
-		$scope.pen =true;
-		$scope.app =false;
-		$scope.num3 = index;
-  };
+	}	
 	
 	$scope.acceptVisitor = function(visitor){	   
         $scope.approved[visitor.id_visitor] = true;

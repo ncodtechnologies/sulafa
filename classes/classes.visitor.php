@@ -32,19 +32,19 @@ class Visitor{
 		$query->execute($values);
 		return $query->fetchAll();
 	}
-	function addVisitor($name,$gate_access,$valley_access,$pass_hash,$date,$id_tenant)
+	function addVisitor($name,$gate_access,$valley_access,$pass_hash,$date,$id_tenant,$status)
 	{
-		$_query="INSERT into visitor(name,gate_access,valley_access,pass_hash,date,id_tenant) VALUES (?,?,?,?,?,?);";
+		$_query="INSERT into visitor(name,gate_access,valley_access,pass_hash,date,id_tenant,status) VALUES (?,?,?,?,?,?,?);";
 		$query=$this->link->prepare($_query);
-		$values=array($name,$gate_access,$valley_access,$pass_hash,$date,$id_tenant);
+		$values=array($name,$gate_access,$valley_access,$pass_hash,$date,$id_tenant,$status);
 		$query=execute($values);
 		return $query->RowCount()>0;		
 	}
-	function updateVisitor($name,$gate_access,$valley_access,$pass_hash,$date,$id_tenant,$id_visitor)
+	function updateVisitor($name,$gate_access,$valley_access,$pass_hash,$date,$id_tenant,$status,$id_visitor)
 	{
-		$_query="UPDATE visitor SET name=?,date=?,gate_access=?,valley_access=?,pass_hash=?,id_tenant=? where id_visitor=?;";
+		$_query="UPDATE visitor SET name=?,date=?,gate_access=?,valley_access=?,pass_hash=?,id_tenant=?,status=? where id_visitor=?;";
 		$query=$this->link->prepare($_query);
-		$values=array($name,$gate_access,$valley_access,$pass_hash,$date,$id_tenant,$id_visitor);
+		$values=array($name,$gate_access,$valley_access,$pass_hash,$date,$id_tenant,$id_visitor,$status);
 		$query=execute($values);
 		return $query->RowCount()>0;
 	}
@@ -55,6 +55,14 @@ class Visitor{
 		$values=array($id_visitor);
 		$query->execute($values);
 		return $query->fetchAll();
+	}
+	function updateStatus($status,$id_visitor)
+	{
+		$_query="UPDATE visitor SET status=? where id_visitor=?;";
+		$query=$this->link->prepare($_query);
+		$values=array($status,$id_visitor);
+		$query=execute($values);
+		return $query->RowCount()>0;
 	}
 } 
 /*

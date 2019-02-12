@@ -1,5 +1,4 @@
 
-
 var app = angular.module("sulafaApp", ["ngRoute"]);
 
 app.config(function($routeProvider) {
@@ -35,6 +34,10 @@ app.config(function($routeProvider) {
     .when("/maintenance/:id_tenant?/", {
         controller: 'viewMaintenanceCntrl',
         templateUrl : "view/maintenance/viewMaintenance.html"
+    })
+    .when("/adv/:id_tenant?/", {
+        controller: 'viewAdvCntrl',
+        templateUrl : "view/adv/viewAdv.html"
     })
 });
 
