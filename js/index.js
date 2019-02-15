@@ -39,6 +39,14 @@ app.config(function($routeProvider) {
         controller: 'viewAdvCntrl',
         templateUrl : "view/adv/viewAdv.html"
     })
+    .when("/addAnnouncement/", {
+        controller: 'addAnnouncementCntrl',
+        templateUrl : "view/announcement/addAnnouncement.html"
+    })
+    .when("/viewAnnouncement/", {
+        controller: 'viewAnnouncementCntrl',
+        templateUrl : "view/announcement/viewAnnouncement.html"
+    })
 });
 
 app.controller('sulafaCtrl', function($scope,sharedService,$rootScope) {

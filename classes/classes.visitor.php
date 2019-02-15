@@ -44,7 +44,7 @@ class Visitor{
 	{
 		$_query="UPDATE visitor SET name=?,date=?,gate_access=?,valley_access=?,pass_hash=?,id_tenant=?,status=? where id_visitor=?;";
 		$query=$this->link->prepare($_query);
-		$values=array($name,$gate_access,$valley_access,$pass_hash,$date,$id_tenant,$id_visitor,$status);
+		$values=array($name,$gate_access,$valley_access,$pass_hash,$date,$id_tenant,$status,$id_visitor);
 		$query=execute($values);
 		return $query->RowCount()>0;
 	}
@@ -56,16 +56,17 @@ class Visitor{
 		$query->execute($values);
 		return $query->fetchAll();
 	}
+	
 	function updateStatus($status,$id_visitor)
 	{
-		$_query="UPDATE visitor SET status=? where id_visitor=?;";
+		$_query = "UPDATE visitor SET status=? where id_visitor=?";
 		$query=$this->link->prepare($_query);
 		$values=array($status,$id_visitor);
-		$query=execute($values);
+		$query->execute($values);
 		return $query->RowCount()>0;
 	}
 } 
 /*
 $obj= new Visitor();
-echo json_encode($obj->getAllVisitors());
+echo json_encode($obj->updateStatus(11,1));
 */

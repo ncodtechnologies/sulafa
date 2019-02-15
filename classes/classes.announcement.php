@@ -17,9 +17,33 @@ class Announcement{
 		$query->execute($values);
 		return $query->fetchAll();
 	}
+	
+	function addAnnouncement($title,$announcement,$date)
+	{
+		$_query = "INSERT INTO announcement (title,announcement,date) VALUES (?,?,?)";
+		$query=$this->link->prepare($_query);
+		$values=array($title,$announcement,$date);
+		$query->execute($values);
+		return $this->link->lastInsertId();	
+	}
+	function getAnnouncement()
+	{
+		$_query = "SELECT * FROM announcement";
+		$query=$this->link->prepare($_query);
+		$query->execute();
+		return $query->fetchAll();		
+	}
+	function deleteAnnouncement($id_announcement)
+	{
+		$_query = "DELETE FROM announcement where id_announcement=?";
+		$query=$this->link->prepare($_query);
+		$values=array($id_announcement);
+		$query->execute($values);
+		return $query->fetchAll();		
+	}
 
 } 
 /*
-$obj= new Visitor();
-echo json_encode($obj->getVisitors());
+$obj= new Announcement();
+echo json_encode($obj->addAnnouncement("aa","abc","2019-10-23"));
 */

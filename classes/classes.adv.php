@@ -17,8 +17,15 @@ class Adv{
 		$query->execute($values);
 		return $query->fetchAll();
 	}
-
 	
+	function updateStatus($status,$id_adv)
+	{
+		$_query = "UPDATE adv SET status=? where id_adv=?";
+		$query=$this->link->prepare($_query);
+		$values=array($status,$id_adv);
+		$query->execute($values);
+		return $query->RowCount()>0;
+	}
 	
 } 
 /*
